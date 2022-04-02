@@ -20,6 +20,7 @@ export const createPost = async (req, res) =>{
         res.status(500).json({ error: error });
     }
 }
+
 export const updatePost = async (req, res) => {
     try {
         const updatedPost = req.body;

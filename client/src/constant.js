@@ -1,6 +1,6 @@
-export const INIT_STATE = {
+export const initialState = {
     posts: {
         isLoading: false,
-        data: [],
+        data: []
     }
 }
