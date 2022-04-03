@@ -10,13 +10,12 @@ const PostList = () => {
     useEffect(() => {
         dispatch(actions.getPosts.getPostsRequest());
     }, [dispatch]);
-    // console.log(posts);
     return <Grid container spacing={2} alignItems="stretch">
-        <Grid item xs={12} sm={6}>
-            {
-                posts.map(post => <Post key={post._id} post={post} />)
-            }
-      </Grid>
+        {posts.map((post) => (
+        <Grid key={post._id} item xs={12} sm={6}>
+          <Post post={post} />
+        </Grid>
+      ))}
   </Grid>
 }
 
