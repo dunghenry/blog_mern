@@ -5,18 +5,12 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import posts from './routers/posts.js';
 import mongoose from 'mongoose';
-const corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200
-}
 const app = express();
 const port = process.env.PORT || 5000;
-app.use(express.urlencoded({ extended: false}));
-app.use(express.json());
-app.use(bodyParser.json({ limit: '30mb' }));
-app.use(bodyParser.urlencoded({ extended: true, limit: '30mb' }));
-app.use(cors(corsOptions));
-app.use(morgan('combined'));
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
+app.use(cors());
+app.use(morgan('dev'));
 
 const connectDB = async () =>{
   try {
